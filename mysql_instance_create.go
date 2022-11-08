@@ -22,8 +22,9 @@ func MysqlInstanceCreate(instanceName string) {
 			Name: instanceName,
 		},
 		Spec: v1alpha2.MySQLSpec{
-			Version: "5.7.36",
+			Version: "8.0.29",
 			Storage: &core.PersistentVolumeClaimSpec{
+				//StorageClassName: pointer.StringP("openebs-lvmpv"),
 				StorageClassName: pointer.StringP("standard"),
 				AccessModes:      []core.PersistentVolumeAccessMode{core.ReadWriteOnce},
 				Resources: core.ResourceRequirements{
